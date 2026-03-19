@@ -1,4 +1,4 @@
-﻿open System
+open System
 
 type 't BTree =
     | Node of 't * 't BTree * 't BTree
@@ -58,7 +58,7 @@ let rec readInt (prompt: string) : int =
 
 [<EntryPoint>]
 let main args =
-    let count = readInt "Количество элементов? "
+    let count = readInt "Введите количество элементов: "
     let random = Random()
     let sourceList = List.init count (fun _ -> random.Next(-150, 160))
     
@@ -71,7 +71,7 @@ let main args =
     let sourceSum = sum sourceTree
     printfn "\nСумма элементов исходного дерева: %d" sourceSum
     
-    printfn "\n=== Подсчет элементов заданной значности ==="
+    printfn "\n Подсчет элементов заданной значности "
     let targetLength = readInt "Введите значность числа (например, 3 для трехзначных): "
     
     let countByLength = countByDigitLength targetLength sourceTree
