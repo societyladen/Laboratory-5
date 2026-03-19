@@ -4,19 +4,19 @@ F# №4
 
 
 
-\# Дорофеев Денис БАС-2 Лабораторная №3
+# Дорофеев Денис БАС-2 Лабораторная №3
 
 
 
-\# Задание 1
+# Задание 1
 
 
 
-\## Задача 1
+## Задача 1
 
 
 
-\### Текст задачи
+### Текст задачи
 
 
 
@@ -28,7 +28,7 @@ F# №4
 
 
 
-\### Алгоритм решения
+### Алгоритм решения
 
 
 
@@ -54,11 +54,9 @@ F# №4
 
 
 
-\### Тестирование
+### Тестирование
 
-https://i.yapx.ru/dLWnB.png
-
-
+<img width="1467" height="566" alt="test1" src="https://github.com/user-attachments/assets/9d169b6e-05ae-46f3-8972-83eba3898590" />
 
 
 
@@ -68,15 +66,15 @@ https://i.yapx.ru/dLWnB.png
 
 
 
-\# Задание 2
+# Задание 2
 
 
 
-\## Задача 1
+## Задача 1
 
 
 
-\### Текст задачи
+### Текст задачи
 
 
 
@@ -86,7 +84,7 @@ https://i.yapx.ru/dLWnB.png
 
 
 
-\### Алгоритм решения
+### Алгоритм решения
 
 
 
@@ -100,11 +98,7 @@ https://i.yapx.ru/dLWnB.png
 
 
 
-<img width="1482" height="436" alt="test3" src="https://github.com/user-attachments/assets/8cdea195-86f5-41a7-9ca7-02cc3479417c" />
-
-
-
-<img width="1462" height="321" alt="test1" src="https://github.com/user-attachments/assets/4f05dacc-fe50-4bc0-94c2-9cb2b674190d" />
+<img width="1475" height="497" alt="test2" src="https://github.com/user-attachments/assets/4e09cee9-bf2c-4ed5-9435-e30e3fe5f2ad" />
 
 
 
