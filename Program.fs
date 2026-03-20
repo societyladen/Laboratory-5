@@ -9,9 +9,10 @@ let rec insert (tree: 't BTree) (value: 't) : 't BTree
     match tree with
     | Nil -> Node(value, Nil, Nil)
     | Node(x, left, right) ->
-        if value < x
-        then Node(x, insert left value, right)
-        else Node(x, left, insert right value)
+        if value < x then
+            Node(x, insert left value, right)
+        else
+            Node(x, left, insert right value)
 
 let rec map (mapping: 'a -> 'b) (tree: 'a BTree) : 'b BTree =
     match tree with
@@ -27,9 +28,10 @@ let prependDigit (digit: int) (number: int) : int =
     let digits = countDigits number
     let multiplier = pown 10 digits
     
-    if number >= 0
-    then digit * multiplier + number
-    else -(digit * multiplier + abs number)
+    if number >= 0 then
+        digit * multiplier + number
+    else
+        -(digit * multiplier + abs number)
 
 let printTree (tree: int BTree) : unit =
     let rec print indent tree =
