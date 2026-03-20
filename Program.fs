@@ -4,17 +4,20 @@ type 't BTree =
     | Node of 't * 't BTree * 't BTree
     | Nil
 
-let rec insert (tree: 't BTree) (value: 't) : 't BTree when 't: comparison =
+let rec insert (tree: 't BTree) (value: 't) : 't BTree
+        when 't: comparison =
     match tree with
     | Nil -> Node(value, Nil, Nil)
     | Node(x, left, right) ->
-        if value < x then Node(x, insert left value, right)
+        if value < x
+        then Node(x, insert left value, right)
         else Node(x, left, insert right value)
 
 let rec map (mapping: 'a -> 'b) (tree: 'a BTree) : 'b BTree =
     match tree with
     | Nil -> Nil
-    | Node(x, left, right) -> Node(mapping x, map mapping left, map mapping right)
+    | Node(x, left, right) ->
+        Node(mapping x, map mapping left, map mapping right)
 
 let prependDigit (digit: int) (number: int) : int =
     let rec countDigits n =
@@ -24,7 +27,8 @@ let prependDigit (digit: int) (number: int) : int =
     let digits = countDigits number
     let multiplier = pown 10 digits
     
-    if number >= 0 then digit * multiplier + number
+    if number >= 0
+    then digit * multiplier + number
     else -(digit * multiplier + abs number)
 
 let printTree (tree: int BTree) : unit =
@@ -49,7 +53,8 @@ let rec readInt (prompt: string) : int =
 let main args =
     let count = readInt "Введите количество элементов: "
     let random = Random()
-    let sourceList = List.init count (fun _ -> random.Next(-150, 160))
+    let sourceList =
+        List.init count (fun _ -> random.Next(-150, 160))
     
     printfn "Исходный список %A" sourceList
     
@@ -57,12 +62,11 @@ let main args =
     printfn "\nИсходное дерево:"
     printTree sourceTree
     
-    
     let digit = readInt "\nВведите цифру для приписывания (0-9): "
     
     let newTree = map (prependDigit digit) sourceTree
-    printfn "\nНовое дерево (с приписанной цифрой %d в начало):" digit
+    printfn "\nНовое дерево (с приписанной цифрой %d в начало):"
+        digit
     printTree newTree
-    
     
     0
