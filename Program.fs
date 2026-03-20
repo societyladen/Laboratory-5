@@ -1,4 +1,4 @@
-﻿open System
+open System
 
 type 't BTree =
     | Node of 't * 't BTree * 't BTree
@@ -15,11 +15,6 @@ let rec map (mapping: 'a -> 'b) (tree: 'a BTree) : 'b BTree =
     match tree with
     | Nil -> Nil
     | Node(x, left, right) -> Node(mapping x, map mapping left, map mapping right)
-
-let rec sum (tree: int BTree) : int =
-    match tree with
-    | Nil -> 0
-    | Node(x, left, right) -> x + sum left + sum right
 
 let prependDigit (digit: int) (number: int) : int =
     let rec countDigits n =
@@ -62,8 +57,6 @@ let main args =
     printfn "\nИсходное дерево:"
     printTree sourceTree
     
-    let sourceSum = sum sourceTree
-    printfn "\nСумма элементов исходного дерева: %d" sourceSum
     
     let digit = readInt "\nВведите цифру для приписывания (0-9): "
     
@@ -71,7 +64,5 @@ let main args =
     printfn "\nНовое дерево (с приписанной цифрой %d в начало):" digit
     printTree newTree
     
-    let newSum = sum newTree
-    printfn "\nСумма элементов нового дерева: %d" newSum
     
     0
