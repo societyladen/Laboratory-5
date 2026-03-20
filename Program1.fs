@@ -33,8 +33,10 @@ let digitCount (n: int) : int =
     if n = 0 then 1
     else
         let rec countDigits num =
-            if abs num < 10 then 1
-            else 1 + countDigits (num / 10)
+            if abs num < 10 then 
+            1
+            else 
+            1 + countDigits (num / 10)
         countDigits (abs n)
 
 let countByDigitLength (targetLength: int) (tree: int BTree) : int =
