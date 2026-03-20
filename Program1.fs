@@ -9,9 +9,10 @@ let rec insert (tree: 't BTree) (value: 't) : 't BTree
     match tree with
     | Nil -> Node(value, Nil, Nil)
     | Node(x, left, right) ->
-        if value < x
-        then Node(x, insert left value, right)
-        else Node(x, left, insert right value)
+        if value < x then
+            Node(x, insert left value, right)
+        else
+            Node(x, left, insert right value)
 
 let rec sum (tree: int BTree) : int =
     match tree with
@@ -38,9 +39,10 @@ let digitCount (n: int) : int =
 
 let countByDigitLength (targetLength: int) (tree: int BTree) : int =
     let folder count value =
-        if digitCount value = targetLength
-        then count + 1
-        else count
+        if digitCount value = targetLength then
+            count + 1
+        else
+            count
     fold folder 0 tree
 
 let printTree (tree: int BTree) : unit =
