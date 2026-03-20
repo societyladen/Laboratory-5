@@ -22,8 +22,10 @@ let rec map (mapping: 'a -> 'b) (tree: 'a BTree) : 'b BTree =
 
 let prependDigit (digit: int) (number: int) : int =
     let rec countDigits n =
-        if abs n < 10 then 1
-        else 1 + countDigits (n / 10)
+        if abs n < 10 then
+            1
+        else 
+            1 + countDigits (n / 10)
     
     let digits = countDigits number
     let multiplier = pown 10 digits
