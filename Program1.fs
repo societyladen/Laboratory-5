@@ -4,19 +4,23 @@ type 't BTree =
     | Node of 't * 't BTree * 't BTree
     | Nil
 
-let rec insert (tree: 't BTree) (value: 't) : 't BTree when 't: comparison =
+let rec insert (tree: 't BTree) (value: 't) : 't BTree
+        when 't: comparison =
     match tree with
     | Nil -> Node(value, Nil, Nil)
     | Node(x, left, right) ->
-        if value < x then Node(x, insert left value, right)
+        if value < x
+        then Node(x, insert left value, right)
         else Node(x, left, insert right value)
 
 let rec sum (tree: int BTree) : int =
     match tree with
     | Nil -> 0
-    | Node(x, left, right) -> x + sum left + sum right
+    | Node(x, left, right) ->
+        x + sum left + sum right
 
-let rec fold (folder: 'state -> 'a -> 'state) (state: 'state) (tree: 'a BTree) : 'state =
+let rec fold (folder: 'state -> 'a -> 'state)
+        (state: 'state) (tree: 'a BTree) : 'state =
     match tree with
     | Nil -> state
     | Node(x, left, right) ->
@@ -34,7 +38,8 @@ let digitCount (n: int) : int =
 
 let countByDigitLength (targetLength: int) (tree: int BTree) : int =
     let folder count value =
-        if digitCount value = targetLength then count + 1
+        if digitCount value = targetLength
+        then count + 1
         else count
     fold folder 0 tree
 
@@ -60,7 +65,8 @@ let rec readInt (prompt: string) : int =
 let main args =
     let count = readInt "Введите количество элементов: "
     let random = Random()
-    let sourceList = List.init count (fun _ -> random.Next(-150, 160))
+    let sourceList =
+        List.init count (fun _ -> random.Next(-150, 160))
     
     printfn "Исходный список %A" sourceList
     
@@ -69,12 +75,16 @@ let main args =
     printTree sourceTree
     
     let sourceSum = sum sourceTree
-    printfn "\nСумма элементов исходного дерева: %d" sourceSum
+    printfn "\nСумма элементов исходного дерева: %d"
+        sourceSum
     
     printfn "\n Подсчет элементов заданной значности "
-    let targetLength = readInt "Введите значность числа (например, 3 для трехзначных): "
+    let targetLength =
+        readInt "Введите значность числа (например, 3 для трехзначных): "
     
-    let countByLength = countByDigitLength targetLength sourceTree
-    printfn "Количество %d-значных чисел в дереве: %d" targetLength countByLength
+    let countByLength =
+        countByDigitLength targetLength sourceTree
+    printfn "Количество %d-значных чисел в дереве: %d"
+        targetLength countByLength
     
     0
